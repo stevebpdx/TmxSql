@@ -16,7 +16,6 @@ Type the following command to import your files into sqlite:
 Connect to the Sqlite Database:
 
 1. Add the Sqlite Manager Plugin to FireFox 
-
 2. Connect to the database file 'tmxdb.sqlite'
 
 Query the TM Repostiory:
