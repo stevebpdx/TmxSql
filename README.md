@@ -20,7 +20,7 @@ Connect to the Sqlite Database:
 
 Query the TM Repostiory:
 
-rom there you can use sql to query and update your translation memories.  Here is an example:
+From there you can use sql to query and update your translation memories.  Here is an example:
 
 SELECT * FROM TranslationUnits
 
