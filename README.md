@@ -20,4 +20,5 @@ Connect to the Sqlite Database:
 Query the TM Repostiory:
 From there you can use sql to query and update your translation memories.  Here is an example:
 SELECT * FROM TranslationUnits
+
 Some useful queries are provided in 'tmx2sql_useful_queries.sql
