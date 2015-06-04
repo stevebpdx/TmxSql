@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tmx version="1.4">
+	<header adminlang="EN-US" creationtool="Sdl.SDLX .Net API" creationtoolversion="2011.0.8927.0" datatype="unknown" o-tmf="sdlxTM" segtype="sentence" srclang="EN-US">
+	</header>
+	<body>
+		<tu srclang="EN-US" tuid="61">
+			<tuv xml:lang="EN-US">
+				<seg>I don't speak French very well.</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140210T125940Z" changeid="service_acme" creationdate="20140210T125940Z" creationid="service_acme" lastusagedate="20140211T065654Z" usagecount="5">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+				<seg>Je ne parle pas très bien français.</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="79">
+			<tuv xml:lang="EN-US">
+				<seg>Do you speak English?</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140210T071608Z" changeid="service_acme" creationdate="20140210T071608Z" creationid="service_acme" lastusagedate="20140312T002154Z" usagecount="7">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+                <seg>Parlez-vous anglais?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="80">
+			<tuv xml:lang="EN-US">
+				<seg>Could you speak more slowly, please?</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140306T130100Z" changeid="service_acme" creationdate="20140128T233923Z" creationid="service_acme" lastusagedate="20140312T071353Z" usagecount="574">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+				<seg>Pourriez-vous parler plus lentement, s’il vous plaît?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="81">
+			<tuv xml:lang="EN-US">
+				<seg>What's your name?</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140128T052223Z" changeid="service_acme" creationdate="20140128T052223Z" creationid="service_acme" lastusagedate="20140213T093729Z" usagecount="809">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+				<seg>Comment allez-vous?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="83">
+			<tuv xml:lang="EN-US">
+				<seg>Where is the subway?</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140210T071608Z" changeid="service_acme" creationdate="20140210T071608Z" creationid="service_acme" lastusagedate="20140312T001957Z" usagecount="24">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+				<seg>Is the tip included?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="84">
+			<tuv xml:lang="EN-US">
+				<seg>How much does that cost?</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140210T071609Z" changeid="service_acme" creationdate="20140210T071609Z" creationid="service_acme" lastusagedate="20140307T100922Z" usagecount="18" >
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+                <seg>Combien ça coûte?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="85">
+			<tuv xml:lang="EN-US">
+				<seg>Is there a public phone here?</seg>
+			</tuv>
+			<tuv  xml:lang="FR" changedate="20140210T071609Z" changeid="service_acme" creationdate="20140210T071609Z" creationid="service_acme" lastusagedate="20140303T041047Z" usagecount="10">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+                <seg>Y a-t-il un téléphone public ici?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="91">
+			<tuv xml:lang="EN-US">
+				<seg>Can I get on the internet?</seg>
+			</tuv>
+			<tuv  xml:lang="FR" changedate="20140210T125943Z" changeid="service_acme" creationdate="20140210T125943Z" creationid="service_acme" lastusagedate="20140312T001709Z" usagecount="27">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+                <seg>Puis-je me connecter à l’Internet?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="92">
+			<tuv xml:lang="EN-US">
+				<seg>Can you help me, please?</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140128T220834Z" changeid="service_acme" creationdate="20140128T220834Z" creationid="service_acme" lastusagedate="20140310T084138Z" usagecount="21">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+                <seg>Pouvez-vous m’aider, s’il vous plaît?</seg>
+			</tuv>
+		</tu>
+		<tu srclang="EN-US" tuid="93">
+			<tuv xml:lang="EN-US">
+				<seg>I don't understand.</seg>
+			</tuv>
+			<tuv xml:lang="FR" changedate="20140128T220834Z" changeid="service_acme" creationdate="20140128T220834Z" creationid="service_acme" lastusagedate="20140128T220834Z" usagecount="0">
+				<prop type="x-Context">Travel</prop>
+				<prop type="x-Source">http://www.fodors.com/</prop>
+                <seg>Je ne comprends pas.</seg>
+			</tuv>
+		</tu>
+	</body>
+</tmx>
