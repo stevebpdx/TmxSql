@@ -31,7 +31,6 @@ This is my class project for a computer science course at Portland State Univers
 
 https://github.com/psu-oss-2017/psu-oss-2017.github.io/wiki
 
-<<<<<<< HEAD
 Week 3 Report:
 =======
 - Attempted to collaborate with the Olifant project on Bitbucket 
