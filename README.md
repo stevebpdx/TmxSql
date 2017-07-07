@@ -26,7 +26,11 @@ SELECT * FROM TranslationUnits
 
 Some useful queries are provided in 'tmx2sql_useful_queries.sql
 
+<<<<<<< HEAD
 zddfasdf Week 3 Report:
+=======
+Week 3 Report:
+>>>>>>> 9b81a1a034286e943d385b166cc90efde63d837e
 - Attempted to collaborate with the Olifant project on Bitbucket 
 - Reviewed TmxSql project with instructor and got approval
 - Reached out to Gert Van Assche of Datamundi, who's SQL work on TMX is the inspiration for this project.
