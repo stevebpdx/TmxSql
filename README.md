@@ -26,6 +26,11 @@ SELECT * FROM TranslationUnits
 
 Some useful queries are provided in 'tmx2sql_useful_queries.sql
 
+Note: 
+This is my class project for a computer science course at Portland State University, CS 561: Open Source Software Development taught by Bart Massey.
+
+https://github.com/psu-oss-2017/psu-oss-2017.github.io/wiki
+
 <<<<<<< HEAD
 Week 3 Report:
 =======
@@ -34,3 +39,4 @@ Week 3 Report:
 - Attempted to collaborate with the Olifant project on Bitbucket 
 - Reviewed TmxSql project with instructor and got approval
 - Reached out to Gert Van Assche of Datamundi, who's SQL work on TMX is the inspiration for this project.
+- Exploring other projects like contributing to OpenNMT
