@@ -27,7 +27,7 @@ SELECT * FROM TranslationUnits
 Some useful queries are provided in 'tmx2sql_useful_queries.sql
 
 <<<<<<< HEAD
-zddfasdf Week 3 Report:
+Week 3 Report:
 =======
 Week 3 Report:
 >>>>>>> 9b81a1a034286e943d385b166cc90efde63d837e
