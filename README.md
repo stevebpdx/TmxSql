@@ -16,7 +16,7 @@ Type the following command to import your files into sqlite:
 Connect to the Sqlite Database:
 
 1. Add the Sqlite Manager Plugin to FireFox 
-2. Connect to the database file 'tmxdb.sqlite'
+1. Connect to the database file 'tmxdb.sqlite'
 
 Query the TM Repostiory:
 
@@ -31,9 +31,21 @@ This is my class project for a computer science course at Portland State Univers
 
 https://github.com/psu-oss-2017/psu-oss-2017.github.io/wiki
 
+## Status
+
+### Done:
+
+### To Do: 
+
+### Limitation:
+
 Week 3 Report:
 =======
 - Attempted to collaborate with the Olifant project on Bitbucket 
 - Reviewed TmxSql project with instructor and got approval
 - Reached out to Gert Van Assche of Datamundi, who's SQL work on TMX is the inspiration for this project.
 - Exploring other projects like contributing to OpenNMT
+
+Week 4 Report
+=======
+- Refactored 
