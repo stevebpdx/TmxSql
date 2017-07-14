@@ -32,6 +32,82 @@ from xml.etree.ElementTree import tostring, iterparse, ParseError
 #  - Break up code into smaller modules
 ###################################################################
 
+def insertTUs(db_con, nodes, count, totalcount):
+    cur = db_con.cursor()
+
+    # we make TUs a list of lists of tuples of (segtext, lang) to reduce
+    # memory use
+    try:
+        for e, node in nodes:
+            if e == 'end' and node.tag == 'tu':
+                segs = []
+
+                orig_tuid = 0
+                if 'tuid' in node.attrib: orig_tuid = node.attrib['tuid']
+
+                src = ''
+                tgt = ''
+                changedate = ''
+                changeid = ''
+                creationdate = ''
+                creationid = ''
+                lastusagedate = ''
+                usagecount = 0
+
+                for tuv in node.findall('tuv'):
+                    lang = tuv.attrib['{http://www.w3.org/XML/1998/namespace}lang']
+
+                    if lang == srclang:
+                        src = tuv.find('seg').text
+                    else:
+                        tgtlang = lang
+                        tgt = tuv.find('seg').text
+                        # changedate = tuv.attrib['changedate'] if 'changedate' in tuv.attrib
+                        if 'changedate' in tuv.attrib: changedate = tuv.attrib['changedate']
+                        if 'changeid' in tuv.attrib: changeid = tuv.attrib['changeid']
+                        if 'creationdate' in tuv.attrib: creationdate = tuv.attrib['creationdate']
+                        if 'creationid' in tuv.attrib: creationid = tuv.attrib['creationid']
+                        if 'lastusagedate' in tuv.attrib: lastusagedate = tuv.attrib['lastusagedate']
+                        if 'usagecount' in tuv.attrib: usagecount = tuv.attrib['usagecount']
+
+                cur.execute("INSERT INTO TranslationUnits VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
+                    orig_tuid, src, tgt, changedate, changeid, creationdate, creationid, lastusagedate, usagecount,
+                    import_id))
+                count += 1
+                totalcount += 1
+                tuid = cur.lastrowid
+
+                sourcefile = None
+                for prop in node.iter(tag='prop'):
+                    propname = prop.attrib['type']
+                    propvalue = prop.text
+
+                    if 'x-ppl:' in propname:
+                        cur.execute("INSERT INTO Perplexity VALUES(?, ?, ?)", (tuid, propname, propvalue))
+                    elif 'x-ALS:Source File' in propname:
+                        # print >> sys.stderr, '\t' + propname + ':\t\t' + propvalue
+                        matches = re.search(r'(?<=\\)(\d+)(?=\\)', propvalue)
+                        if matches is not None and sourcefile is None:
+                            sourcefile = matches.group(0)
+                            fname = ntpath.basename(propvalue)
+                            cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, 'tms_id', sourcefile))
+                            cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, 'source_file', fname))
+                            cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, propname, propvalue))
+                            # print >> sys.stderr, 'Filename: ' + fname
+                            # print >> sys.stderr, matches.group(0)
+                    else:
+                        # print >> sys.stderr, '\t' + propname + ':\t\t' + propvalue
+                        cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, propname, propvalue))
+                node.clear()
+            root.clear()
+    # except ParseError:
+    except Exception as e:
+        print e
+        db_con.commit()
+    del nodes
+
+    return count, totalcount
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     #parser.add_argument('--dbname', action='store_true', help='Specify Database name - default is ./tmxdb1.db.')
@@ -93,76 +169,8 @@ if __name__ == '__main__':
         cur.execute("INSERT INTO TmxImportFiles(sourcelang, tmxfile, started) VALUES(?, ?, ?)", (srclang, tmx_file, started))
         import_id = cur.lastrowid
 
-        # we make TUs a list of lists of tuples of (segtext, lang) to reduce
-        # memory use
-        try:
-            for e, node in nodes:
-                if e == 'end' and node.tag == 'tu':
-                    segs = []
-
-                    orig_tuid = 0
-                    if 'tuid' in node.attrib: orig_tuid = node.attrib['tuid']
-
-                    src = ''
-                    tgt = ''
-                    changedate = ''
-                    changeid = ''
-                    creationdate = ''
-                    creationid = ''
-                    lastusagedate = ''
-                    usagecount = 0
-
-                    for tuv in node.findall('tuv'):
-                        lang = tuv.attrib['{http://www.w3.org/XML/1998/namespace}lang']
-
-                        if lang == srclang:
-                            src = tuv.find('seg').text
-                        else:
-                            tgtlang = lang
-                            tgt = tuv.find('seg').text
-                            #changedate = tuv.attrib['changedate'] if 'changedate' in tuv.attrib
-                            if 'changedate' in tuv.attrib: changedate = tuv.attrib['changedate']
-                            if 'changeid' in tuv.attrib: changeid = tuv.attrib['changeid']
-                            if 'creationdate' in tuv.attrib: creationdate = tuv.attrib['creationdate']
-                            if 'creationid' in tuv.attrib: creationid = tuv.attrib['creationid']
-                            if 'lastusagedate' in tuv.attrib: lastusagedate = tuv.attrib['lastusagedate']
-                            if 'usagecount' in tuv.attrib: usagecount = tuv.attrib['usagecount']
-
-                    cur.execute("INSERT INTO TranslationUnits VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
-                        orig_tuid, src, tgt, changedate, changeid, creationdate, creationid, lastusagedate, usagecount,
-                        import_id))
-                    count += 1
-                    totalcount += 1
-                    tuid = cur.lastrowid
-
-                    sourcefile = None
-                    for prop in node.iter(tag='prop'):
-                        propname = prop.attrib['type']
-                        propvalue = prop.text
-
-                        if 'x-ppl:' in propname:
-                            cur.execute("INSERT INTO Perplexity VALUES(?, ?, ?)", (tuid, propname, propvalue))
-                        elif 'x-ALS:Source File' in propname:
-                            #print >> sys.stderr, '\t' + propname + ':\t\t' + propvalue
-                            matches = re.search(r'(?<=\\)(\d+)(?=\\)', propvalue)
-                            if matches is not None and sourcefile is None:
-                                sourcefile = matches.group(0)
-                                fname = ntpath.basename(propvalue)
-                                cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, 'tms_id', sourcefile))
-                                cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, 'source_file', fname))
-                                cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, propname, propvalue))
-                                #print >> sys.stderr, 'Filename: ' + fname
-                                #print >> sys.stderr, matches.group(0)
-                        else:
-                            #print >> sys.stderr, '\t' + propname + ':\t\t' + propvalue
-                            cur.execute("INSERT INTO Properties VALUES(?, ?, ?)", (tuid, propname, propvalue))
-                    node.clear()
-                root.clear()
-        #except ParseError:
-        except Exception as e:
-            print e
-            con.commit()
-        del nodes
+        # loop to take care of TUs 
+        count, totalcount = insertTUs(con, nodes, count, totalcount)
 
         completed = str(datetime.datetime.now())
         print >> sys.stderr, '\tCompleted:\t' + completed
