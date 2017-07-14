@@ -169,7 +169,7 @@ if __name__ == '__main__':
         cur.execute("INSERT INTO TmxImportFiles(sourcelang, tmxfile, started) VALUES(?, ?, ?)", (srclang, tmx_file, started))
         import_id = cur.lastrowid
 
-        # loop to take care of TUs 
+        # loop to take care of TUs
         count, totalcount = insertTUs(con, nodes, count, totalcount)
 
         completed = str(datetime.datetime.now())
