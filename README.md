@@ -1,5 +1,5 @@
 # TmxSql
-TmxSql enables localization engineers to create a Centralized TM Repository from TMX files that they can query using SQL.
+TmxSql enables localization engineers to work with translation memories using SQL. You can create a Centralized TM Repository from TMX files that they can query using SQL. The TMX file format, Translation Memory Exchange, is a standard in XML format used to transfer translation data.
 
 Getting Started:
 Use Git to pull down a clone of the the TmxSql.  Here is a quick tutorial. You will need the following files:
