@@ -39,7 +39,7 @@ This project was inspired by Gert Van Asshe from Datamundi.  Gert has been doing
 https://www.linkedin.com/in/gertvanassche
 
 ## Status
-Can be used to effectively manage bilingual TMX files.  Not ready yet to import TMX files with 3 or more languages.
+Can be used to effectively manage bilingual TMX files using SQL queries.  Not ready yet to import TMX files with 3 or more languages.
 
 ### To Do: 
 - Import: Allow import of TMX files with multiple target segments for each translation unit.
