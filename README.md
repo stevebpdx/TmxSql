@@ -43,16 +43,17 @@ Can be used to effectively manage bilingual TMX files.  Not ready yet to import 
 
 ### To Do: 
 - Import: Allow import of TMX files with multiple target segments for each translation unit.
-- SQL: Move Source/Target language columns to column headers in views.
-- SQL: Define interfaces to abstract db layer and decouple Sqlite dependency.
-- Testing: Create python unit tests, test on linux
-- SQL: Add <note> to property table - any other meta data?  Header?
-- SQL: Performance: Indexes to improve performance, defrag existing db file
-- SQL: More sql views
-- SQL: Table or ini file of regexps to clean and dedupe data
-- argument: allow *.tmx on DOS
+- Import: Define interfaces to abstract db layer and decouple Sqlite dependency.
+- Import: argument: allow *.tmx on DOS
 - Import: add optional argument: --dbname
 - Import: add optional argument: --company 	Specify a company name
 - Import: add optional argument: --domain		Specify a domain if known
 - Import: Try catch for exceptions with db transactions
 - Import: Break up code into smaller modules
+- Testing: Create python unit tests, test on linux
+- SQL: Move Source/Target language columns to column headers in views.
+- SQL: Add <note> to property table - any other meta data?  Header?
+- SQL: Performance: Indexes to improve performance, defrag existing db file
+- SQL: More sql views
+- SQL: Table or ini file of regexps to clean and dedupe data
+
