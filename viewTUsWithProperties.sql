@@ -2,7 +2,7 @@ CREATE  VIEW "main"."vw_TUsWithTmsFileProps" AS -- SQL Lite TM Repository View
 SELECT --distinct
        tu.id,
        orig_tuid,
-       f.sourcelang || ' > ' || f.targetlang AS lp,
+       --f.sourcelang || ' > ' || f.targetlang AS lp,
 	   tu.Source,
 	   tu.Target,
 	   tu.usagecount,
