@@ -14,22 +14,10 @@ from xml.etree.ElementTree import tostring, iterparse, ParseError
 ###################################################################
 # TmxSqlite Repository
 ###################################################################
+# Import TMX into a Sqlite database
+###################################################################
 # Acknowledgements: Gert van Assche's Datamundi TMX to SQL work:
 # http://www.datamundi.be/cms/index.php/why-using-sql-on-an-xml-format-like-tmx
-###################################################################
-# To Do:
-#  - Define interfaces to abstract db layer and decouple Sqlite dependency.
-#  - Testing: unit testing, test on linux
-#  - Add <note> to property table - any other meta data?  Header?
-#  - Performance: Indexes to improve performance, defrag existing db file
-#  - More sql views
-#  - Table or ini file of regexps to clean and dedupe data
-#  - argument: allow *.tmx on DOS
-#  - argument: --dbname		Specify a Sqlite db filename
-#  - argument: --company 	Specify a company name
-#  - argument: --domain		Specify a domain if known
-#  - Try catch for exceptions with db transactions
-#  - Break up code into smaller modules
 ###################################################################
 
 def insertTUs(db_con, nodes, count, totalcount):
