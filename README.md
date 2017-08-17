@@ -37,7 +37,7 @@ https://github.com/psu-oss-2017/psu-oss-2017.github.io/wiki
 
 ### To Do: 
 
-### Limitation:
+### Limitations:
 
 Week 3 Report:
 =======
